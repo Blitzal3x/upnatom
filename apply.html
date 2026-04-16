@@ -38,15 +38,17 @@
 
     const form = new FormData(e.target);
 
-    const { error } = await supabase
-      .from("applications")
-      .insert({
-        full_name: form.get("full_name"),
-        email: form.get("email"),
-        phone: form.get("phone"),
-        motivation: form.get("motivation")
-      });
-
+    const { data, error } = await supabase
+  .from("applications")
+  .insert([
+    {
+      full_name,
+      email,
+      phone,
+      motivation
+    }
+  ]);
+    
     if (error) {
       alert("Fehler beim Absenden");
     } else {
