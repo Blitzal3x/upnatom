@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Bewerbung – Up N Atom</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="supabase.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">Up N Atom</div>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="apply.html">Bewerben</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+</header>
+
+<section class="content container">
+  <h2>Bewirb dich jetzt</h2>
+
+  <form id="applicationForm" class="card">
+    <input type="text" name="full_name" placeholder="Vollständiger Name" required>
+    <input type="email" name="email" placeholder="E-Mail" required>
+    <input type="text" name="phone" placeholder="Telefonnummer">
+    <textarea name="motivation" placeholder="Warum möchtest du bei uns arbeiten?" required></textarea>
+    <button type="submit">Bewerbung absenden</button>
+  </form>
+</section>
+
+<script type="module">
+  import { supabase } from './supabase.js';
+
+  document.getElementById("applicationForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.target);
+
+    const { error } = await supabase
+      .from("applications")
+      .insert({
+        full_name: form.get("full_name"),
+        email: form.get("email"),
+        phone: form.get("phone"),
+        motivation: form.get("motivation")
+      });
+
+    if (error) {
+      alert("Fehler beim Absenden");
+    } else {
+      alert("Bewerbung erfolgreich eingereicht!");
+      window.location.href = "index.html";
+    }
+  });
+</script>
+
+<footer>
+  © 2026 Up N Atom – Bewerbungsportal
+</footer>
+
+</body>
+</html>

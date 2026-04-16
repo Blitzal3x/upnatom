@@ -1,0 +1,214 @@
+/* ===========================
+   Global Styles
+=========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #faf7f2;
+  color: #2b2b2b;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Header / Navigation
+=========================== */
+
+.header {
+  background: #b22222; /* warmes Rot */
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.header .logo {
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.header nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+.header nav a:hover {
+  opacity: 0.8;
+}
+
+/* ===========================
+   Hero Banner
+=========================== */
+
+.hero {
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+button {
+  background: #ffb300; /* warmes Gelb */
+  color: #2b2b2b;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #e09e00;
+}
+
+/* ===========================
+   Content Layout
+=========================== */
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.content h2 {
+  margin-bottom: 15px;
+  color: #b22222;
+}
+
+/* ===========================
+   Cards (Formulare, Login)
+=========================== */
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+/* ===========================
+   Inputs & Textareas
+=========================== */
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fff;
+  transition: border 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #b22222;
+  outline: none;
+}
+
+/* ===========================
+   Admin Table
+=========================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+table th {
+  background: #b22222;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+table tr:hover {
+  background: #fff4e0;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: #b22222;
+  color: white;
+}
+
+/* ===========================
+   Mobile Optimization
+=========================== */
+
+@media (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 30px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .header nav a {
+    margin-left: 10px;
+  }
+}
